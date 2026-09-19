@@ -156,6 +156,16 @@
   white-space:pre-wrap; word-break:break-word; max-height:22rem; overflow:auto;
 }
 .cell .out pre.err{ color:#FF9A8B }
+.cell .pkgs{
+  font:500 .62rem/1 var(--mono); letter-spacing:.04em; text-transform:uppercase;
+  color: var(--amber); border:1px solid var(--amber); border-radius:5px;
+  padding:.3rem .45rem; white-space:nowrap;
+}
+.cell .figs{ display:flex; flex-direction:column; gap:.7rem; margin-top:.7rem }
+.cell .figs:empty{ margin-top:0 }
+.cell .figs img{
+  display:block; max-width:100%; height:auto; border-radius:7px; background:#fff; padding:.4rem;
+}
 .cell .status{ font:500 .75rem/1 var(--md-text-font); color: var(--md-default-fg-color--lighter); display:inline-flex; align-items:center; gap:.4rem }
 .cell .dot{ width:7px; height:7px; border-radius:50%; background: var(--md-default-fg-color--lighter); flex:none }
 .cell .dot.busy{ background: var(--amber); animation:m1-pulse 1s ease-in-out infinite }

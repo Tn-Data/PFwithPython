@@ -39,6 +39,8 @@ inputs:                     # optional — omit entirely for a cell with no inpu
   - 12
   - 8
 input_hint: a, then b       # optional hint text above the Inputs box
+packages: [pandas]          # optional — Pyodide packages to load first
+guard: false                # optional — turn off the infinite-loop guard
 solution: |                 # optional — adds a "Show one answer" button
   perimeter = 2 * (length + width)
 ---
@@ -49,6 +51,22 @@ print(a)
 ````
 
 The Inputs box feeds those lines to `input()` in order, one call per line. Leave out `inputs:` entirely for a cell that doesn't call `input()`. There's a built-in guard against infinite loops (it stops any cell after ~400,000 traced lines with a friendly message), so it's safe to let students break things.
+
+**`packages:`** loads Pyodide libraries before the code runs — `pandas`, `numpy`, `matplotlib` and [the rest of the Pyodide catalogue](https://pyodide.org/en/stable/usage/packages-in-pyodide.html). They're downloaded once per browser session and cached for every later cell, but the first one on a page is a 10–20 MB download, so warn students on pages that use them. A badge on the cell header shows which libraries it needs.
+
+**The loop guard turns itself off** whenever `packages:` is used — library internals execute far more than 400,000 lines and would trip it instantly. Use `guard: true` to force it back on, or `guard: false` to disable it on a plain-Python cell.
+
+**matplotlib figures are captured automatically.** Any chart a cell draws (`df.plot.bar(...)`, `plt.plot(...)`) is rendered as an image underneath the text output — no `plt.show()` needed.
+
+**Data files:** anything in `docs/data/` is published with the site, and every cell gets a `DATA_URL` variable pointing at that folder. Because a browser can't read local disk, cells load them over the web:
+
+```python
+import pandas as pd
+from pyodide.http import open_url
+df = pd.read_csv(open_url(DATA_URL + "titanic.csv"))
+```
+
+`docs/data/titanic.csv` ships with this repo — it's the same 891-row dataset as `seaborn.load_dataset('titanic')`.
 
 ### A self-graded quiz
 

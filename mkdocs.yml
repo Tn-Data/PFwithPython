@@ -96,5 +96,20 @@ nav:
       - 2. Flowcharts: module-1/02-flowcharts.md
       - 3. Intro to Programming: module-1/03-intro-programming.md
       - Check yourself: module-1/04-quiz.md
-  - Module 2 — Python Core: module-2/index.md
-  - Module 3 — Data Analysis: module-3/index.md
+  - Module 2 — Python Fundamentals:
+      - Overview: module-2/index.md
+      - 1. Variables and operators: module-2/01-variables-operators.md
+      - 2. Making decisions: module-2/02-conditionals.md
+      - 3. Loops: module-2/03-loops.md
+      - 4. Functions and modules: module-2/04-functions.md
+      - 5. Lists and strings: module-2/05-lists.md
+      - 6. Tuples and dictionaries: module-2/06-tuples-dicts.md
+      - Check yourself: module-2/07-quiz.md
+  - Module 3 — Data Science:
+      - Overview: module-3/index.md
+      - "1. What is data science?": module-3/01-data-science.md
+      - "2. Pandas basics": module-3/02-pandas-basics.md
+      - "3. Summarising and filtering": module-3/03-analysis.md
+      - "4. Visualisation": module-3/04-visualization.md
+      - "5. Case study - the Titanic": module-3/05-titanic.md
+      - Check yourself: module-3/06-quiz.md

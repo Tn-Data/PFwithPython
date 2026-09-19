@@ -2,7 +2,7 @@
 
 Loaded via the `hooks:` key in mkdocs.yml, which MkDocs imports directly
 by file path — this deliberately avoids relying on `sys.path`/package
-imports, so it works the same locally and in CI with no extra setup.
+imports, so it works the same locally and in CI.
 
 It registers two custom fenced-code-block types with pymdownx.superfences
 so lecturers can write:
@@ -55,12 +55,22 @@ def format_runpy(source, language, css_class, options, md, **kwargs):
           - 12                       # one value per line, fed to input()
           - 8
         input_hint: a, then b        # optional hint text above the box
-        solution: |                  # optional: adds a "Show one answer" button
+        packages: [pandas]           # optional: Pyodide packages to load
+                                     #   first (pandas, numpy, matplotlib...)
+        guard: false                 # optional: turn OFF the infinite-loop
+                                     #   guard. It is off automatically
+                                     #   whenever `packages` is used, because
+                                     #   library code trips the step counter.
+        solution: |                  # optional: "Show one answer" button
           perimeter = 2 * (length + width)
         ---
         # everything below the --- is the actual Python code
         print("hello")
         ```
+
+    Cells that request `matplotlib` get any figures they draw rendered
+    as images underneath the text output, and every cell gets a
+    `DATA_URL` global pointing at the site's `docs/data/` folder.
     """
     header_src, code = _split_frontmatter(source)
     meta = yaml.safe_load(header_src) if header_src.strip() else None
@@ -81,6 +91,18 @@ def format_runpy(source, language, css_class, options, md, **kwargs):
         cfg["inputHint"] = meta.get("input_hint", "one value per line")
     if meta.get("solution"):
         cfg["solution"] = meta["solution"].rstrip("\n")
+
+    pkgs = meta.get("packages")
+    if pkgs:
+        if isinstance(pkgs, str):
+            pkgs = [pkgs]
+        cfg["packages"] = [str(p) for p in pkgs]
+
+    # The loop guard uses sys.settrace, which library code (pandas in
+    # particular) trips almost immediately and which slows execution a lot.
+    # Off by default whenever packages are loaded; `guard:` overrides.
+    if meta.get("guard") is not None:
+        cfg["guard"] = bool(meta["guard"])
 
     return f"<div data-cell='{_attr_safe(cfg)}'></div>"
 
