@@ -1,0 +1,100 @@
+site_name: Programming Fundamentals
+site_description: >-
+  Intro to Programming with Python — Socio-Computing Department,
+  Faculty of Economics and Political Science, Cairo University
+site_author: Ahmed Tawfik
+
+# Change these once you create the GitHub repo (used for the "edit this page" links)
+repo_url: https://github.com/YOUR-USERNAME/YOUR-REPO
+repo_name: YOUR-USERNAME/YOUR-REPO
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: en
+  favicon: assets/favicon.svg
+  icon:
+    logo: material/school
+    repo: fontawesome/brands/github
+  palette:
+    # Light mode — "custom" tells Material to read the colors from extra.css
+    # instead of its own named palette (see docs/stylesheets/extra.css)
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  font:
+    text: IBM Plex Sans
+    code: IBM Plex Mono
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - content.code.copy
+    - content.action.edit
+    - search.suggest
+    - search.highlight
+
+hooks:
+  - hooks/hooks.py
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  # Pyodide (runs real Python in the browser). Pin the version deliberately.
+  - https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js
+  - javascripts/pyrunner.js
+  - javascripts/quiz.js
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - toc:
+      permalink: "#"
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences:
+      custom_fences:
+        # Native Mermaid diagrams (flowcharts) — Material renders these for free.
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+        # The runpy / quiz fences (runnable Python cells, self-graded quizzes)
+        # are registered from hooks/hooks.py's on_config(), not here — see
+        # that file for why.
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+# ── Add new pages here as you write them ──────────────────────────────────
+nav:
+  - Home: index.md
+  - Module 1 — Foundations:
+      - Overview: module-1/index.md
+      - 1. Algorithms: module-1/01-algorithms.md
+      - 2. Flowcharts: module-1/02-flowcharts.md
+      - 3. Intro to Programming: module-1/03-intro-programming.md
+      - Check yourself: module-1/04-quiz.md
+  - Module 2 — Python Core: module-2/index.md
+  - Module 3 — Data Analysis: module-3/index.md
