@@ -5,8 +5,8 @@ site_description: >-
 site_author: Ahmed Tawfik
 
 # Change these once you create the GitHub repo (used for the "edit this page" links)
-repo_url: https://github.com/YOUR-USERNAME/YOUR-REPO
-repo_name: YOUR-USERNAME/YOUR-REPO
+repo_url: https://github.com/Tn-Data/PFwithPython
+repo_name: Tn-Data/PFwithPython
 edit_uri: edit/main/docs/
 
 theme:
