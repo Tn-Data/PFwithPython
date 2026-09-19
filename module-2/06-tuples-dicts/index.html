@@ -1,0 +1,1828 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Intro to Programming with Python — Socio-Computing Department, Faculty of Economics and Political Science, Cairo University">
+      
+      
+        <meta name="author" content="Ahmed Tawfik">
+      
+      
+      
+        <link rel="prev" href="../05-lists/">
+      
+      
+        <link rel="next" href="../07-quiz/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>6. Tuples and dictionaries - Programming Fundamentals</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tuples-and-dictionaries" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Programming Fundamentals" class="md-header__button md-logo" aria-label="Programming Fundamentals" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programming Fundamentals
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              6. Tuples and dictionaries
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Tn-Data/PFwithPython" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Tn-Data/PFwithPython
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Module 1 — Foundations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Module 2 — Python Fundamentals
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-3/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Module 3 — Data Science
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Programming Fundamentals" class="md-nav__button md-logo" aria-label="Programming Fundamentals" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    Programming Fundamentals
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Tn-Data/PFwithPython" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Tn-Data/PFwithPython
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../module-1/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 1 — Foundations
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Module 1 — Foundations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/01-algorithms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/02-flowcharts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Flowcharts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/03-intro-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Intro to Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-1/04-quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Check yourself
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 2 — Python Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Module 2 — Python Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-variables-operators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Variables and operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Making decisions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Loops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Functions and modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Lists and strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Tuples and dictionaries
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Tuples and dictionaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tuples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tuples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tuples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-would-you-want-a-container-that-cant-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why would you want a container that can't change?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#looping-over-tuples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Looping over tuples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dictionaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dictionaries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dictionaries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#four-ways-to-create-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Four ways to create one
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dictionary-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dictionary methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nested-dictionaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nested dictionaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Worked examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#character-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Character frequency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#marketing-campaign-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Marketing campaign analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-list-of-dictionaries-the-shape-of-real-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A list of dictionaries — the shape of real data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sheet-4-ex-4-price-elasticity-of-demand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sheet 4, Ex 4 — price elasticity of demand
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-three-containers-side-by-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The three containers, side by side
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Check yourself
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../module-3/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 3 — Data Science
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Module 3 — Data Science
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/01-data-science/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What is data science?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/02-pandas-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Pandas basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/03-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Summarising and filtering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/04-visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Visualisation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/05-titanic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Case study - the Titanic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-3/06-quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Check yourself
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tuples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tuples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tuples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-would-you-want-a-container-that-cant-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why would you want a container that can't change?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#looping-over-tuples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Looping over tuples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dictionaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dictionaries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dictionaries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#four-ways-to-create-one" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Four ways to create one
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dictionary-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dictionary methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nested-dictionaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nested dictionaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Worked examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#character-frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Character frequency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#marketing-campaign-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Marketing campaign analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-list-of-dictionaries-the-shape-of-real-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A list of dictionaries — the shape of real data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sheet-4-ex-4-price-elasticity-of-demand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sheet 4, Ex 4 — price elasticity of demand
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-three-containers-side-by-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The three containers, side by side
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/Tn-Data/PFwithPython/edit/main/docs/module-2/06-tuples-dicts.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<div class="hero">
+<p><span class="eyebrow">Lesson 6 of 6 · Lecture 2_4, Part 2</span></p>
+<h1 id="tuples-and-dictionaries">Tuples and dictionaries<a class="headerlink" href="#tuples-and-dictionaries" title="Permanent link">#</a></h1>
+<p class="lede">A tuple is a list that refuses to change. A dictionary looks things up by name instead of by position. Between them and the list, you can represent almost any dataset you'll meet.</p>
+</div>
+<h2 id="tuples">Tuples<a class="headerlink" href="#tuples" title="Permanent link">#</a></h2>
+<p>A tuple is virtually identical to a list, with <strong>one important difference: tuples are immutable.</strong> Once created, you cannot add, remove, or replace an element.</p>
+<ul>
+<li>Written with <strong>parentheses</strong> <code>()</code> instead of square brackets <code>[]</code>.</li>
+<li>Can hold any mix of data types, including lists, dictionaries, and other tuples.</li>
+<li>Accessing and slicing work exactly as with lists.</li>
+</ul>
+<div data-cell='{"id": "c-97c839b8", "title": "Creating and slicing tuples", "code": "x = (0, 10, 20, 30, 40, 50, 60, 70, 80, 90)\ny = (&#39;first&#39;, &#39;second&#39;, &#39;third&#39;)\nz = (1871, &#39;Ahmed&#39;, &#39;Amer&#39;, [&#39;Math&#39;, &#39;Arabic&#39;], (20, 30))   # mixed types\n\nprint(type(z))\n\nx = x + y            # + creates a NEW tuple\nprint(x, len(x))\n\nprint(\"x[5:10]  -&gt;\", x[5:10])\nprint(\"y[-3:-1] -&gt;\", y[-3:-1])\nprint(\"x[:-3]   -&gt;\", x[:-3])", "sub": "everything works like a list..."}'></div>
+<div data-cell='{"id": "c-fb30bd14", "title": "...until you try to change one", "code": "x = (0, 10, 20, 30)\nprint(\"The tuple is:\", x)\n\nx[0] = 7        # TypeError: &#39;tuple&#39; object does not support item assignment\n\nprint(\"This line never runs.\")", "sub": "this cell is meant to fail"}'></div>
+<div class="admonition trap">
+<p class="admonition-title">One sneaky exception</p>
+<p>A tuple is immutable, but if it <em>contains</em> a mutable object — a list, say — that inner object can still be changed:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">x</span> <span class="o">=</span> <span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">7</span>      <span class="c1"># allowed!  x is now ([1, 7], [3, 4])</span>
+</code></pre></div>
+<p>The tuple's promise is "I will always hold these same <em>objects</em>," not "these objects will never change."</p>
+</div>
+<h3 id="why-would-you-want-a-container-that-cant-change">Why would you want a container that can't change?<a class="headerlink" href="#why-would-you-want-a-container-that-cant-change" title="Permanent link">#</a></h3>
+<div data-cell='{"id": "c-8ed42443", "title": "Tuple methods", "code": "# Inflation rates (%) over 10 years - fixed historical data\nrates = (2.1, 1.8, 2.5, 3.0, 2.8, 1.9, 2.5, 3.2, 2.8, 2.5)\n\nprint(\"Rates over 10 years:\", rates)\nprint(\"2.5% occurred:\", rates.count(2.5), \"times\")\nprint(\"First 3.0% at year index:\", rates.index(3.0))\n\n# set() removes duplicates; tuple() turns the result back into a tuple\nprint(\"Unique rates:\", tuple(set(rates)))", "sub": "there are only two"}'></div>
+<div class="admonition sowhat">
+<p class="admonition-title">So what?</p>
+<p>Immutability is a <strong>safety feature</strong>. Historical inflation figures, the days of the week, a set of fixed economic indicators — none of these should ever change while your program runs. Storing them in a tuple means an accidental <code>rates[3] = 99</code> crashes loudly instead of silently corrupting your analysis. Tuples are also slightly faster, because Python knows their size can never change.</p>
+</div>
+<h3 id="looping-over-tuples">Looping over tuples<a class="headerlink" href="#looping-over-tuples" title="Permanent link">#</a></h3>
+<div data-cell='{"id": "c-f49fc60e", "title": "One loop, three containers", "code": "print(\"Loop over a tuple\")\nfor number in (0, 1, 2, 3):\n    print(\" \", number)\n\nprint(\"Loop over a list\")\nfor i in [0, 10, 20, 30]:\n    print(\" \", i)\n\nprint(\"Loop over a string\")\nfor letter in \"Python\":\n    print(\" \", letter)", "sub": "tuple, list, and string all behave the same"}'></div>
+<div data-cell='{"id": "c-c9358625", "title": "A list of tuples", "code": "team = [(&#39;Ahmed&#39;, 20, &#39;center&#39;),\n        (&#39;Anas&#39;, 22, &#39;point guard&#39;),\n        (&#39;Wael&#39;, 22, &#39;shooting guard&#39;),\n        (&#39;Ameer&#39;, 21, &#39;power forward&#39;),\n        (&#39;Ali&#39;, 19, &#39;small forward&#39;)]\n\ntotal = 0\nfor name, age, position in team:        # unpack each tuple into 3 names\n    print(f\"{name:8} {position}\")\n    total += age\n\nprint(\"\\nTeam average age:\", total / len(team))\nprint(\"team[1]      -&gt;\", team[1])\nprint(\"team[1][2]   -&gt;\", team[1][2])\nprint(\"team[2:4]    -&gt;\", team[2:4])", "sub": "unpacking three values at once"}'></div>
+<p>A list of tuples is one of the most natural shapes for a table of records — each tuple is a row. In Module 3 you'll see pandas take this idea much further.</p>
+<h2 id="dictionaries">Dictionaries<a class="headerlink" href="#dictionaries" title="Permanent link">#</a></h2>
+<p>A dictionary stores data as <strong>key: value</strong> pairs. You look things up by <strong>name</strong>, not by position.</p>
+<ul>
+<li>Written with <strong>curly brackets</strong> <code>{}</code>, or built with <code>dict()</code>.</li>
+<li><strong>Values</strong> can be any type, and can repeat.</li>
+<li><strong>Keys</strong> must be unique and immutable (strings, numbers, tuples).</li>
+<li>Dictionaries <strong>are</strong> changeable — you can add, modify, and remove items.</li>
+</ul>
+<div data-cell='{"id": "c-9a827152", "title": "Your first dictionary", "code": "country_capitals = {\n    \"Germany\": \"Berlin\",\n    \"Canada\": \"Ottawa\",\n    \"England\": \"London\"\n}\n\nprint(country_capitals)\nprint()\nprint(\"The capital of Canada is\", country_capitals[\"Canada\"])", "sub": "keys, values, and items"}'></div>
+<p>In that dictionary: <code>Germany</code>, <code>Canada</code>, <code>England</code> are the <strong>keys</strong>; <code>Berlin</code>, <code>Ottawa</code>, <code>London</code> are the <strong>values</strong>; and each <code>key: value</code> pair is an <strong>item</strong>.</p>
+<div class="admonition life">
+<p class="admonition-title">Why it's called a dictionary</p>
+<p>In a paper dictionary you don't look up the 4,213th word — you look up <em>"economics."</em> That's exactly the difference between a list (give me item number 4213) and a dictionary (give me the value stored under this name). And just as a real dictionary can't define the same word twice, <strong>keys must be unique</strong>.</p>
+</div>
+<h3 id="four-ways-to-create-one">Four ways to create one<a class="headerlink" href="#four-ways-to-create-one" title="Permanent link">#</a></h3>
+<div data-cell='{"id": "c-bb0248bd", "title": "Four routes to the same dictionary", "code": "# 1. dict() with keyword arguments\np1 = dict(first_name=\"Rob\", surname=\"Jone\", gender=\"Male\", favourite_food=\"Pizza\")\n\n# 2. dict() with a list of tuples\np2 = dict([(\"first_name\", \"Rob\"), (\"surname\", \"Jone\"),\n           (\"gender\", \"Male\"), (\"favourite_food\", \"Pizza\")])\n\n# 3. Curly brackets - the most common\np3 = {\"first_name\": \"Rob\", \"surname\": \"Jone\",\n      \"gender\": \"Male\", \"favourite_food\": \"Pizza\"}\n\n# 4. Start empty, then fill it in\np4 = {}\np4[\"first_name\"] = \"Rob\"\np4[\"surname\"] = \"Jone\"\np4[\"gender\"] = \"Male\"\np4[\"favourite_food\"] = \"Pizza\"\n\nprint(p1 == p2 == p3 == p4)      # all four are identical\nprint(p3)", "sub": "pick whichever reads best"}'></div>
+<div class="admonition trap">
+<p class="admonition-title">One key, one value</p>
+<p><code>{'numbers': 1, 2, 3}</code> is an error — a key can only point at a single value. If you want several, wrap them in one container: <code>{'numbers': [1, 2, 3]}</code>. That's perfectly valid, and very common.</p>
+</div>
+<h3 id="dictionary-methods">Dictionary methods<a class="headerlink" href="#dictionary-methods" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>keys()</code></td>
+<td>all the keys</td>
+</tr>
+<tr>
+<td><code>values()</code></td>
+<td>all the values</td>
+</tr>
+<tr>
+<td><code>items()</code></td>
+<td>all the key–value pairs</td>
+</tr>
+<tr>
+<td><code>pop(key)</code></td>
+<td>remove the item with that key</td>
+</tr>
+<tr>
+<td><code>popitem()</code></td>
+<td>remove the last inserted item</td>
+</tr>
+<tr>
+<td><code>update()</code></td>
+<td>merge in more key–value pairs</td>
+</tr>
+<tr>
+<td><code>copy()</code></td>
+<td>an independent copy</td>
+</tr>
+<tr>
+<td><code>clear()</code></td>
+<td>remove everything</td>
+</tr>
+</tbody>
+</table>
+<div data-cell='{"id": "c-b5a88a38", "title": "keys, values, items", "code": "pd = {\"first_name\": \"Rob\", \"surname\": \"Jone\",\n      \"gender\": \"Male\", \"favourite_food\": \"Pizza\"}\n\nprint(\"keys()  :\", list(pd.keys()))\nprint(\"values():\", list(pd.values()))\nprint()\nprint(\"items():\")\nfor key, value in pd.items():\n    print(f\"   {key:16} -&gt; {value}\")", "sub": "the three views of a dictionary"}'></div>
+<div data-cell='{"id": "c-bb931652", "title": "Adding, changing, checking, removing", "code": "pd = {\"first_name\": \"Rob\", \"surname\": \"Jone\", \"favourite_food\": \"Pizza\"}\nprint(\"start      :\", pd)\n\npd[&#39;hobby&#39;] = &#39;tennis&#39;              # add a new item\nprint(\"after add  :\", pd)\n\npd[&#39;first_name&#39;] = &#39;James&#39;          # update an existing one\nprint(\"after edit :\", pd)\n\nprint(\"Is &#39;hobby&#39; a key?\", &#39;hobby&#39; in pd)\n\npd.pop(&#39;favourite_food&#39;)            # remove by key\ndel pd[&#39;hobby&#39;]                     # another way to remove\nprint(\"after removes:\", pd)\n\npd2 = pd.copy()                     # remember the copy trap from Lesson 5!\npd.clear()\nprint(\"pd :\", pd)\nprint(\"pd2:\", pd2)", "sub": "dictionaries are mutable"}'></div>
+<h3 id="nested-dictionaries">Nested dictionaries<a class="headerlink" href="#nested-dictionaries" title="Permanent link">#</a></h3>
+<p>Values can themselves be lists or dictionaries — which is how real, structured data looks.</p>
+<div data-cell='{"id": "c-80426f86", "title": "Reaching into nested data", "code": "person = {\n    &#39;first_name&#39;: &#39;Mona&#39;,\n    &#39;last_name&#39;: &#39;Saber&#39;,\n    &#39;age&#39;: 25,\n    &#39;country&#39;: &#39;Egypt&#39;,\n    &#39;is_married&#39;: True,\n    &#39;skills&#39;: [&#39;JavaScript&#39;, &#39;React&#39;, &#39;Node&#39;, &#39;MongoDB&#39;, &#39;Python&#39;],\n    &#39;address&#39;: {&#39;street&#39;: &#39;Kareem Banona&#39;, &#39;zipcode&#39;: &#39;02210&#39;}\n}\n\nprint(\"Looping over a dictionary gives you the KEYS:\")\nfor i, key in enumerate(person, start=1):\n    print(\"  \", i, key)\n\nprint()\nprint(\"skills        -&gt;\", person[&#39;skills&#39;])\nprint(\"skills[2]     -&gt;\", person[&#39;skills&#39;][2])\nprint(\"address street-&gt;\", person[&#39;address&#39;][&#39;street&#39;])", "sub": "chain the brackets"}'></div>
+<h2 id="worked-examples">Worked examples<a class="headerlink" href="#worked-examples" title="Permanent link">#</a></h2>
+<h3 id="character-frequency">Character frequency<a class="headerlink" href="#character-frequency" title="Permanent link">#</a></h3>
+<div data-cell='{"id": "c-2baa4c31", "title": "Count every character in a string", "code": "txt = \"Hello, I love feps\"\n\ntxt_dic = {}\nfor char in set(txt.lower()):        # set() gives the unique characters\n    txt_dic[char] = txt.lower().count(char)\n\n# Sort by count, highest first, just to make it readable\nfor char, count in sorted(txt_dic.items(), key=lambda pair: -pair[1]):\n    label = \"&#39;\" + char + \"&#39;\" if char != \" \" else \"(space)\"\n    print(f\"{label:9} {count}\")", "sub": "building a dictionary in a loop"}'></div>
+<h3 id="marketing-campaign-analysis">Marketing campaign analysis<a class="headerlink" href="#marketing-campaign-analysis" title="Permanent link">#</a></h3>
+<div data-cell='{"id": "c-b495d25e", "title": "Which advertising platform performs best?", "code": "def suggest_improvement(ctr_data, min_ctr=4.0):\n    low_ctr = [p for p, c in ctr_data.items() if c &lt; min_ctr]\n    if low_ctr:\n        print(f\"Platforms needing improvement (CTR &lt; {min_ctr}%): {low_ctr}\")\n    else:\n        print(\"All platforms are performing well!\")\n\n# Click-through rate per platform, in %\nad_ctr = {\n    \"Google Ads\": 5.4,\n    \"Facebook Ads\": 3.8,\n    \"Instagram Ads\": 4.2,\n    \"LinkedIn Ads\": 1.9\n}\n\ntop = max(ad_ctr.values())\nbest = [k for k, v in ad_ctr.items() if v == top]\nprint(\"Best advertising platform:\", best)\nprint()\n\nsuggest_improvement(ad_ctr)\nsuggest_improvement(ad_ctr, 2)", "sub": "dictionaries + list comprehension"}'></div>
+<h3 id="a-list-of-dictionaries-the-shape-of-real-data">A list of dictionaries — the shape of real data<a class="headerlink" href="#a-list-of-dictionaries-the-shape-of-real-data" title="Permanent link">#</a></h3>
+<div data-cell='{"id": "c-0c204e19", "title": "Survey responses", "code": "def avg_hours(entries):\n    return sum(e[\"hours\"] for e in entries) / len(entries)\n\ndef heavy_users(entries, limit=2):\n    return [e[\"name\"] for e in entries if e[\"hours\"] &gt; limit]\n\ndata = [\n    {\"name\": \"Alice\",   \"age\": 22, \"platform\": \"Instagram\", \"hours\": 3},\n    {\"name\": \"Bob\",     \"age\": 25, \"platform\": \"Facebook\",  \"hours\": 1},\n    {\"name\": \"Charlie\", \"age\": 19, \"platform\": \"TikTok\",    \"hours\": 4},\n    {\"name\": \"David\",   \"age\": 30, \"platform\": \"Twitter\",   \"hours\": 2},\n]\n\nfor row in data:\n    print(row)\n\navg = avg_hours(data)\nprint(\"\\nAverage hours:\", round(avg, 2))\nprint(\"Heavy users (more than 2 hours):\", heavy_users(data))\nprint(f\"Heavy users (more than {round(avg,2)} hours):\", heavy_users(data, avg))", "sub": "this is one step away from a pandas DataFrame"}'></div>
+<div class="admonition sowhat">
+<p class="admonition-title">Look at that shape carefully</p>
+<p>A <strong>list of dictionaries</strong>, where every dictionary has the same keys, is a table: each dictionary is a row, each key is a column. You have just built a dataset by hand. In Module 3, <code>pd.DataFrame(data)</code> turns that exact structure into something you can sort, filter, group, and plot in one line each.</p>
+</div>
+<h3 id="sheet-4-ex-4-price-elasticity-of-demand">Sheet 4, Ex 4 — price elasticity of demand<a class="headerlink" href="#sheet-4-ex-4-price-elasticity-of-demand" title="Permanent link">#</a></h3>
+<div data-cell='{"id": "c-ff25cb32", "title": "Sheet 4, Ex 4: price elasticity", "code": "products = {\n    \"Laptop\":     {\"p0\": 1000, \"p1\": 1500, \"q0\": 50,  \"q1\": 20},\n    \"Smartphone\": {\"p0\": 800,  \"p1\": 1000, \"q0\": 200, \"q1\": 400},\n    \"Headphones\": {\"p0\": 100,  \"p1\": 80,   \"q0\": 500, \"q1\": 700},\n    \"Camera\":     {\"p0\": 1200, \"p1\": 1100, \"q0\": 30,  \"q1\": 35},\n    \"Monitor\":    {\"p0\": 300,  \"p1\": 330,  \"q0\": 100, \"q1\": 130},\n}\n\nprint(\"Price Elasticity of Demand:\\n\")\nfor product, data in products.items():\n    P0, P1 = data[\"p0\"], data[\"p1\"]\n    Q0, Q1 = data[\"q0\"], data[\"q1\"]\n\n    price_change = (P1 - P0) / P0\n    qty_change = (Q1 - Q0) / Q0\n\n    if price_change != 0:\n        elasticity = round(qty_change / price_change, 2)\n    else:\n        elasticity = float(&#39;inf&#39;)\n\n    if elasticity &gt; 1:\n        category = \"Elastic\"\n    elif elasticity &lt; 1:\n        category = \"Inelastic\"\n    else:\n        category = \"Unitary\"\n\n    print(f\"{product:12} Elasticity = {elasticity:6} -&gt; {category}\")", "sub": "a dictionary of dictionaries"}'></div>
+<div class="admonition life">
+<p class="admonition-title">Reading the result</p>
+<p>Elasticity above 1 means demand is <strong>elastic</strong> — a small price rise loses you a lot of customers, so raising prices may cut total revenue. Below 1 is <strong>inelastic</strong> — people buy it anyway (fuel, medicine, bread), so a price rise increases revenue. This one number drives an enormous amount of real pricing policy.</p>
+</div>
+<h2 id="the-three-containers-side-by-side">The three containers, side by side<a class="headerlink" href="#the-three-containers-side-by-side" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Tuple</th>
+<th>List</th>
+<th>Dictionary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Definition</strong></td>
+<td>immutable ordered collection</td>
+<td>mutable ordered collection</td>
+<td>key–value pairs</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td><code>gdp = (2.5, 3.1, 2.8)</code></td>
+<td><code>countries = ['USA', 'UK']</code></td>
+<td><code>pop = {'USA': 331, 'UK': 68}</code></td>
+</tr>
+<tr>
+<td><strong>Mutable?</strong></td>
+<td>no</td>
+<td>yes</td>
+<td>yes (keys unique)</td>
+</tr>
+<tr>
+<td><strong>Indexing</strong></td>
+<td>by position</td>
+<td>by position</td>
+<td><strong>by key</strong></td>
+</tr>
+<tr>
+<td><strong>Duplicates</strong></td>
+<td>allowed</td>
+<td>allowed</td>
+<td>keys must be unique</td>
+</tr>
+<tr>
+<td><strong>Speed</strong></td>
+<td>fastest (fixed size)</td>
+<td>slower (dynamic)</td>
+<td>optimised for key lookup</td>
+</tr>
+<tr>
+<td><strong>Use when</strong></td>
+<td>the data must not change</td>
+<td>the data needs editing</td>
+<td>you need to look things up by name</td>
+</tr>
+<tr>
+<td><strong>Methods</strong></td>
+<td><code>count()</code>, <code>index()</code></td>
+<td><code>append()</code>, <code>remove()</code>, <code>pop()</code>, <code>sort()</code></td>
+<td><code>keys()</code>, <code>values()</code>, <code>items()</code>, <code>get()</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>That's Module 2. Test yourself: <strong><a href="../07-quiz/">Check yourself</a></strong> — then Module 3 puts all of it to work on real data.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../05-lists/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 5. Lists and strings">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                5. Lists and strings
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../07-quiz/" class="md-footer__link md-footer__link--next" aria-label="Next: Check yourself">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Check yourself
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "content.code.copy", "content.action.edit", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+      
+        <script src="../../javascripts/pyrunner.js"></script>
+      
+        <script src="../../javascripts/quiz.js"></script>
+      
+    
+  </body>
+</html>
